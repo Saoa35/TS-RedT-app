@@ -15,6 +15,8 @@ export const githubApi = createApi({
           per_page: 10,
         },
       }),
+      transformErrorResponse: (response: ServerResponse<IUser>) =>
+        response.items,
     }),
   }),
 });
