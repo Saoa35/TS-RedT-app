@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchUsersQuery } from "../store/github/github.api";
 
 export function HomePage() {
   const { isLoading, isError, data } = useSearchUsersQuery("Saoa35");
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    console.log(search);
+  }, [search]);
+
   return (
     <div>
       {isError && (
