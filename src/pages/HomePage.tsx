@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useDebounce } from "../hooks/debounce";
 import { useSearchUsersQuery } from "../store/github/github.api";
 
 export function HomePage() {
   const { isLoading, isError, data } = useSearchUsersQuery("Saoa35");
   const [search, setSearch] = useState("");
+
+  const debounced = useDebounce(search);
 
   useEffect(() => {
     console.log(search);
